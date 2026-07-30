@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppHeader from "@/components/AppHeader.vue";
+</script>
 
 <template>
-  <h1 class="text-8xl">123123</h1>
+  <div class="px-4 py-8">
+    <AppHeader/>
+  </div>
 </template>
 
 <style scoped></style>
