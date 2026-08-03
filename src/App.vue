@@ -2,6 +2,7 @@
 import AppHeader from "@/components/AppHeader.vue";
 import WeeklyCalendar from "@/components/WeeklyCalendar.vue";
 import HabitDashboard from "@/components/HabitDashboard.vue";
+import HabitPopover from "@/components/HabitPopover.vue";
 </script>
 
 <template>
