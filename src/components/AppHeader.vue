@@ -4,7 +4,7 @@
   const now = new Date();
   const dayName = now.toLocaleDateString("en-US", { weekday: "long" });
   const month = now.toLocaleDateString("en-US", { month: "long" });
-  const day = now.getDay()
+  const day = now.getDate()
 </script>
 
 <template>
