@@ -12,7 +12,7 @@ export interface Habit {
 export const useHabitsStore = defineStore('habits', () => {
   const habits = ref<Habit[]>([
     { name: 'Morning Run', type: 'Daily', streak: 10, icon: '🏃', status: 'completed' },
-    { name: 'Read 30 mins', type: 'T W F', streak: 5, icon: '📖', status: 'uncompleted' },
+    { name: 'Read 30 mins', type: 'Tue Wed Fri', streak: 5, icon: '📖', status: 'uncompleted' },
   ])
 
   const habitIcons = ref(['🏃', '📖', '💧', '🧘', '🏋️', '🌙', '🎯', '✍️', '🍎', '🖥️', '🚴', '🎨'])
