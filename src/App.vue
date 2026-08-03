@@ -5,7 +5,7 @@ import HabitDashboard from "@/components/HabitDashboard.vue";
 </script>
 
 <template>
-  <div class="px-4 py-8">
+  <div class="px-4 py-8 max-w-[960px] mx-auto">
     <AppHeader/>
     <main class="mt-6">
       <WeeklyCalendar/>
