@@ -4,7 +4,7 @@ import ProgressBar from "@/components/ProgressBar.vue";
 import HabitCard from "@/components/HabitCard.vue";
 import { useHabitsStore } from "@/stores/habits.ts";
 import BaseButton from "@/components/BaseButton.vue";
-import { ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { Trophy } from "@lucide/vue";
 import AppModal from "@/components/AppModal.vue";
 import ProgressCircle from "@/components/ProgressCircle.vue";
@@ -13,6 +13,17 @@ const { habits, countCompleted, toggleStatus } = useHabitsStore();
 
 const showModal = ref<boolean>(false);
 
+const progress = computed(() => {
+  if (!habits.length) return 0
+
+  const completed = countCompleted(habits)
+  return Math.round((completed / habits.length) * 100)
+});
+
+
+onMounted(() => {
+  console.log(countCompleted(habits));
+})
 </script>
 
 <template>
@@ -45,7 +56,7 @@ const showModal = ref<boolean>(false);
           <h2 class="card-title">Weekly Progress</h2>
         </div>
         <div class="flex items-center justify-center">
-          <ProgressCircle :progress="57" :size="110" :stroke-width="9"/>
+          <ProgressCircle :progress="progress" :size="110" :stroke-width="9"/>
         </div>
         <div class="flex justify-between items-center gap-2">
           <div class="rounded-xl bg-secondary/60 p-3 text-center w-full">
