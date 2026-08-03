@@ -45,10 +45,10 @@ const handleHabitAdd = () => {
 
 <template>
   <div
-      class="fixed inset-0 z-50 flex items-end justify-center p-0 sm:p-4 bg-foreground/40 backdrop-blur-sm"
+      class="fixed inset-0 z-50 flex items-end justify-center p-0 lg:items-center bg-foreground/40 backdrop-blur-sm"
       @click.stop="$emit('closeModal')"
   >
-    <div class="h-[60vh] bg-card w-full rounded-t-2xl border border-border p-4 z-[100] flex flex-col justify-between"
+    <div class="h-[60vh] max-w-[960px] mx-auto bg-card w-full rounded-t-2xl lg:rounded-2xl border border-border p-4 z-[100] flex flex-col justify-between"
          @click.stop
     >
       <div>
@@ -78,7 +78,7 @@ const handleHabitAdd = () => {
                       v-for="icon in habitIcons"
                       :key="icon"
                       @click="selectedIcon = icon"
-                      class="text-lg flex items-center justify-center aspect-square rounded-xl bg-background border transition-all duration-200"
+                      class="w-14 h-14 lg:w-24 lg:h-24 text-lg flex items-center justify-center aspect-square rounded-xl bg-background border transition-all duration-200"
                       :class="selectedIcon === icon ? 'border-primary ring-2 ring-primary/30 bg-primary/10' : 'border-border hover:border-primary/50'"
               >
                 {{ icon }}
@@ -105,7 +105,7 @@ const handleHabitAdd = () => {
             </div>
             <Transition name="slide-up">
               <div v-if="selectedType === 'specific'"
-                   class="flex items-center justify-between mt-3">
+                   class="flex items-center justify-between mt-2">
                 <button v-for="(day, index) in days"
                         :key="index"
                         class="rounded-full w-12 h-12 aspect-square bg-background flex items-center justify-center border border-border text-sm font-semibold transition-all duration-200"
@@ -120,7 +120,7 @@ const handleHabitAdd = () => {
         </div>
       </div>
       <div>
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-2 mt-1">
           <button
               class="bg-background py-2.5 rounded-2xl font-semibold text-sm transition-all duration-200 border border-border hover:border-primary/50 hover:bg-accent/30"
               @click="$emit('closeModal')"
