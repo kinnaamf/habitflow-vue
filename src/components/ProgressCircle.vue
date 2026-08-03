@@ -39,6 +39,7 @@ const strokeDashoffset = computed(() => {
           :cy="center"
           :r="radius"
           :stroke-width="strokeWidth"
+          stroke-linecap="round"
           class="stroke-secondary-foreground fill-none transition-all duration-200 ease-in-out"
           :style="{strokeDasharray: circumference,
                   strokeDashoffset: strokeDashoffset}"
