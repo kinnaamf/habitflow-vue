@@ -39,6 +39,7 @@ onMounted(() => {
       <div class="space-y-3">
         <HabitCard v-for="(habit, index) in habits"
                    :habit="habit"
+                   :index="index"
                    :key="index"
                    @toggleStatus="toggleStatus(habit)"/>
       </div>

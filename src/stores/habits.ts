@@ -31,5 +31,9 @@ export const useHabitsStore = defineStore('habits', () => {
     habits.value.push(newHabit)
   }
 
-  return { habits, toggleStatus, countCompleted, habitIcons, addHabit }
+  const removeHabit = (index: number) => {
+    habits.value.splice(index, 1)
+  }
+
+  return { habits, toggleStatus, countCompleted, habitIcons, addHabit, removeHabit }
 })

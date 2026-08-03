@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Habit } from "@/stores/habits.ts";
+import { type Habit, useHabitsStore } from "@/stores/habits.ts";
 import { Ellipsis, CheckIcon } from "@lucide/vue";
 import { ref } from "vue";
 import HabitPopover from "@/components/HabitPopover.vue";
@@ -7,11 +7,14 @@ import { onClickOutside } from "@vueuse/core";
 
 defineProps<{
   habit: Habit
+  index: number
 }>();
 
 defineEmits<{
   (e: 'toggleStatus', habit: Habit): void;
 }>();
+
+const { removeHabit } = useHabitsStore()
 
 const showPopover = ref<boolean>(false);
 
@@ -61,7 +64,9 @@ onClickOutside(popoverRef, () => {
           <HabitPopover
               ref="popoverRef"
               v-if="showPopover"
-              class="absolute right-4 bottom-4"/>
+              class="absolute right-4 bottom-4"
+              @remove="removeHabit(index)"
+          />
         </Transition>
       </div>
     </div>
