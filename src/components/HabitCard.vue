@@ -32,7 +32,7 @@ onClickOutside(popoverRef, () => {
     <div class="flex items-center gap-3">
       <button class="border-2 border-border w-8 h-8 rounded-full flex items-center justify-center hover:border-primary transition-all duration-200"
               :class="habit.status === 'completed' ? 'bg-primary' : 'bg-background'"
-              @click="$emit('toggleStatus')"
+              @click="$emit('toggleStatus', habit)"
       >
         <CheckIcon
             v-if="habit.status === 'completed'"
